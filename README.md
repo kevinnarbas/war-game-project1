@@ -4,7 +4,7 @@
 ### Wireframe for game board:
 ![Imgur](https://i.imgur.com/CqdZTPl.png)
 
-### General Psudocode 
+### General Pseudocode 
     Initiate
         -Board
         -Turn
@@ -18,7 +18,7 @@
         -Flipped card
 
 
-### More Detailed
+### Detailed Pseudocode
 
     * <- if two player game
     init
@@ -63,6 +63,8 @@
 * Landing page with rules
 * Different modes 
     * Two player
+* Add audio elements
+
     
 
 
