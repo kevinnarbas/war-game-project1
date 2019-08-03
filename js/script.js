@@ -2,7 +2,7 @@
 
 
 /*----- app's state (variables) -----*/ 
-
+let cardCount, currCard, playDeck, winner;
 
 /*----- cached element references -----*/ 
 
@@ -11,3 +11,9 @@
 
 
 /*----- functions -----*/
+init();
+
+function init() {
+    cardCount = 0;
+    
+}
