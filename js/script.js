@@ -6,7 +6,7 @@ const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12',
 const masterDeck = builtMasterDeck();
 
 /*----- app's state (variables) -----*/ 
-let cardCount, currCard, shuffledDeck, playDeck, compDeck, winner;
+let cardCount, compCard, playerCard, shuffledDeck, playDeck, compDeck, winner;
 
 /*----- cached element references -----*/ 
 
@@ -32,10 +32,8 @@ function init() {
         comp: 0,
     };
 
-    currCard = {
-        player: 'back',
-        comp: 'back',
-    };
+    compCard = [];
+    playerCard = [];
 
     // playerDeck = [];
     
@@ -93,14 +91,27 @@ function splitDeck() {
 }
 
 function playRound() {
-    let compCard = [];
-    let playerCard = [];
     compCard = compDeck.shift();
     playerCard = playerDeck.shift();
     console.log(compCard);
-    console.log(playerCard)
+    console.log(playerCard);
+
+    checkRoundWinner();
     render();
 }
+
+function checkRoundWinner() {
+    if (playerCard.value > compCard.value) { 
+        console.log('player wins')
+    }
+    else if (playerCard.value == compCard.value) {
+        console.log('go to war')
+    }
+    else console.log('computer wins')
+}
+
+
+
 
 function resetGame() {
     init();
