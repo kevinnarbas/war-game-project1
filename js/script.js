@@ -9,7 +9,10 @@ const masterDeck = builtMasterDeck();
 let cardCount, currCard, shuffledDeck, playDeck, compDeck, winner;
 
 /*----- cached element references -----*/ 
-
+const countEls = {
+    player: document.getElementById('counter1'),
+    comp: document.getElementById('counter2'),
+}
 
 /*----- event listeners -----*/ 
 
@@ -28,15 +31,25 @@ function init() {
         comp: 'back',
     };
 
-    playDeck = [];
-
-    compDeck = [];
-
+    // playerDeck = [];
+    
+    // compDeck = [];
+    
     winner = null // player or comp 
-
-
+    
+    builtShuffledDeck();
+    render();
+    console.log(playerDeck.length);
 }
 
+function render() {
+    //render scores
+    for (let key in cardCount) {
+        console.log(`${key}Deck`)
+        countEls[key].textContent = `${key}Deck`.length;
+        
+    }
+}
 
 function builtShuffledDeck() {
     let tempDeck = masterDeck.slice();
@@ -46,8 +59,9 @@ function builtShuffledDeck() {
         shuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
     }
     splitDeck();
-    
 }
+
+
 
 function builtMasterDeck() {
     let deck = [];
@@ -64,11 +78,11 @@ function builtMasterDeck() {
 };
 
 function splitDeck() {
-    playDeck = shuffledDeck.slice(26, (shuffledDeck.length + 1));
+    playerDeck = shuffledDeck.slice(26, (shuffledDeck.length + 1));
     compDeck = shuffledDeck.slice(0, 26)
+    return 
 }
 
 
-builtShuffledDeck();
 console.log(masterDeck);
 console.log(shuffledDeck);
