@@ -45,6 +45,7 @@ function builtShuffledDeck() {
         let rndIdx = Math.floor(Math.random() * tempDeck.length);
         shuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
     }
+    splitDeck();
     
 }
 
@@ -61,6 +62,11 @@ function builtMasterDeck() {
     });
     return deck;
 };
+
+function splitDeck() {
+    playDeck = shuffledDeck.slice(26, (shuffledDeck.length + 1));
+    compDeck = shuffledDeck.slice(0, 26)
+}
 
 
 builtShuffledDeck();
