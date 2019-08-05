@@ -32,9 +32,20 @@ function init() {
 
     compDeck = [];
 
-    shuffledDeck = [];
-
     winner = null // player or comp 
+
+
+}
+
+
+function builtShuffledDeck() {
+    let tempDeck = masterDeck.slice();
+    shuffledDeck = [];
+    while (tempDeck.length) {
+        let rndIdx = Math.floor(Math.random() * tempDeck.length);
+        shuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
+    }
+    
 }
 
 function builtMasterDeck() {
@@ -48,17 +59,10 @@ function builtMasterDeck() {
             });
         });
     });
+    return deck;
 };
 
 
-function builtShuffledDeck() {
-    let tempDeck = masterDeck.slice();
-    shuffledDeck = [];
-    while (tempDeck.length) {
-        let rdxIdx = Math.floor(Math.random * tempDeck.length);
-        shuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
-    }
-    console.log(tempDeck)
-}
+builtShuffledDeck();
 console.log(masterDeck);
 console.log(shuffledDeck);
