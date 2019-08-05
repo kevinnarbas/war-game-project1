@@ -9,10 +9,15 @@ const masterDeck = builtMasterDeck();
 let cardCount, currCard, shuffledDeck, playDeck, compDeck, winner;
 
 /*----- cached element references -----*/ 
-const countEls = {
-    player: document.getElementById('counter1'),
-    comp: document.getElementById('counter2'),
-}
+
+// ICE BOX CODE BELOW
+
+// const countEls = {
+//     player: document.getElementById('counter1'),
+//     comp: document.getElementById('counter2'),
+// }
+const playerCountEl = document.getElementById('counter1')
+const compCountEl = document.getElementById('counter2')
 
 /*----- event listeners -----*/ 
 
@@ -39,16 +44,21 @@ function init() {
     
     builtShuffledDeck();
     render();
-    console.log(playerDeck.length);
+    // console.log(`The player has ${playerDeck.length} cards`);
 }
 
 function render() {
     //render scores
-    for (let key in cardCount) {
-        console.log(`${key}Deck`)
-        countEls[key].textContent = `${key}Deck`.length;
-        
-    }
+    //ICE BOX ISSUE BELOW
+    // for (let key in cardCount) {
+    //     console.log(`The player has ${playerDeck.length} cards`);
+    //     console.log(`The computer has ${compDeck.length} cards`)
+    //     // countEls[key].textContent = `${key}Deck.length`;
+    //     countEls
+    // }
+    cardCount.player = (playerCountEl.textContent = playerDeck.length);
+    cardCount.comp = (compCountEl.textContent = compDeck.length);
+    
 }
 
 function builtShuffledDeck() {
@@ -60,8 +70,6 @@ function builtShuffledDeck() {
     }
     splitDeck();
 }
-
-
 
 function builtMasterDeck() {
     let deck = [];
