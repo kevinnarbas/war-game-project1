@@ -5,23 +5,28 @@ html, * {
 
 body {
     display: flex;
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-header {
+/* header {
     background-color: rebeccapurple;
 }
 
 footer {
     background-color: blue;
+} */
+
+div img {
+    height: 40vh
 }
 
 main {
     display: grid;
     grid-template-columns: 22vmin 62vmin;
-    grid-template-rows: 45vh 50vh 5vh;
+    grid-template-rows: 40vh 40vh 5vh;
     grid-template-areas: 
         "play2 card2"
         "play1 card1"
