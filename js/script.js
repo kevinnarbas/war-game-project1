@@ -20,7 +20,8 @@ const playerCountEl = document.getElementById('counter1')
 const compCountEl = document.getElementById('counter2')
 
 /*----- event listeners -----*/ 
-
+document.getElementById('next').addEventListener('click', playRound);
+document.getElementById('reset').addEventListener('click', resetGame);
 
 /*----- functions -----*/
 init();
@@ -91,6 +92,19 @@ function splitDeck() {
     return 
 }
 
+function playRound() {
+    let compCard = [];
+    let playerCard = [];
+    compCard = compDeck.shift();
+    playerCard = playerDeck.shift();
+    console.log(compCard);
+    console.log(playerCard)
+    render();
+}
+
+function resetGame() {
+    init();
+}
 
 console.log(masterDeck);
 console.log(shuffledDeck);
