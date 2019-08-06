@@ -103,8 +103,8 @@ function playRound() {
     if (playerDeck.length > 0 && compDeck.length > 0) {
         compCard = compDeck.shift();
         playerCard = playerDeck.shift();
-        renderCard(compCard, compCardRender)
-        renderCard(playerCard, playerCardRender)
+        renderCard(compCard, compCardRender);
+        renderCard(playerCard, playerCardRender);
         console.log(compCard);
         console.log(playerCard);
         
@@ -145,6 +145,8 @@ function goToWar() {
     compCard = [compCard, ...compWar];
     console.log(playerWar, compWar);
     console.log(playerCard, compCard);
+    renderWarCards(playerCard, playerCardRender);
+    renderWarCards(compCard, compCardRender);
     checkWarWinner();
 
 }
@@ -179,19 +181,22 @@ function goToWarAgain() {
     };
     playerCard = playerCard.concat(playerWarTwo);
     compCard = compCard.concat(compWarTwo);
-    console.log(playerWar, compWar);
+    console.log(playerWarTwo, compWarTwo);
     console.log(playerCard, compCard);
     checkWarWinner();
 }
 
 function renderCard(card, player) {
+    player.innerHTML = `<div class="card ${card.face}"></div>`;
+}
+
+function renderWarCards(card, player) {
     player.innerHTML = '';
-    // Let's build the cards as a string of HTML
-    let cardsHtml = `<div class="card ${card.face}"></div>`
-    // var cardsHtml = deck.reduce(function(html, card) {
-    //   return html + `<div class="card ${card.face}"></div>`;
-    // }, '');
-    player.innerHTML = cardsHtml;
+    for (let i = 0; i <= card.length - 1; i++){
+        player.innerHTML = `<div class="card ${card[i].face}"></div> <br />`
+    }
+    
+    
 }
 
 function renderWinner() {
