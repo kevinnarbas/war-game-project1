@@ -158,7 +158,7 @@ function checkWarWinner() {
     }
     else if (playerCard[playerCard.length - 1].value == compCard[compCard.length - 1].value) {
         console.log('go to war');
-        goToWar();
+        goToWarAgain();
     }
     else {
         compDeck = compDeck.concat(compCard, playerCard);
@@ -169,6 +169,19 @@ function checkWarWinner() {
     // compDeck.flat(2);
     playerCard = [];
     compCard = [];
+}
+function goToWarAgain() {
+    let playerWarTwo = [];
+    let compWarTwo = [];
+    for(let i = 0; i <= 3; i++) {
+        compWarTwo.push(compDeck.shift());
+        playerWarTwo.push(playerDeck.shift());
+    };
+    playerCard = playerCard.concat(playerWarTwo);
+    compCard = compCard.concat(compWarTwo);
+    console.log(playerWar, compWar);
+    console.log(playerCard, compCard);
+    checkWarWinner();
 }
 
 function renderCard(card, player) {
@@ -182,8 +195,11 @@ function renderCard(card, player) {
 }
 
 function renderWinner() {
-    if (compDeck.length === 0) return alert('Player has won')
-    if (playerDeck.length === 0) return alert('Computer has won')
+    if (compDeck.length > playerDeck.length) {
+        return alert('Computer has won')
+    } else {
+        return alert('Computer has won')
+    }; 
 }
 
 
