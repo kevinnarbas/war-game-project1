@@ -18,6 +18,9 @@ let cardCount, compCard, playerCard, shuffledDeck, playDeck, compDeck, winner;
 // }
 const playerCountEl = document.getElementById('counter1')
 const compCountEl = document.getElementById('counter2')
+const playerCardRender = document.querySelector('.playcard1')
+const compCardRender = document.querySelector('.playcard2')
+
 
 /*----- event listeners -----*/ 
 document.getElementById('next').addEventListener('click', playRound);
@@ -41,6 +44,11 @@ function init() {
     
     winner = null // player or comp 
     
+    playerCardRender.innerHTML = `<div class="card back-blue"></div>`;
+    compCardRender.innerHTML = `<div class="card back-blue"></div>`;
+    
+
+
     builtShuffledDeck();
     render();
     // console.log(`The player has ${playerDeck.length} cards`);
@@ -57,6 +65,7 @@ function render() {
     // }
     cardCount.player = (playerCountEl.textContent = playerDeck.length);
     cardCount.comp = (compCountEl.textContent = compDeck.length);
+    
     
 }
 
@@ -91,13 +100,19 @@ function splitDeck() {
 }
 
 function playRound() {
-    compCard = compDeck.shift();
-    playerCard = playerDeck.shift();
-    console.log(compCard);
-    console.log(playerCard);
-    
-    checkRoundWinner();
-    render();
+    if (playerDeck.length > 0 && compDeck.length > 0) {
+        compCard = compDeck.shift();
+        playerCard = playerDeck.shift();
+        renderCard(compCard, compCardRender)
+        renderCard(playerCard, playerCardRender)
+        console.log(compCard);
+        console.log(playerCard);
+        
+        checkRoundWinner();
+        render();
+    } else {
+        renderWinner();
+    }
 }
 
 function checkRoundWinner() {
@@ -154,6 +169,21 @@ function checkWarWinner() {
     // compDeck.flat(2);
     playerCard = [];
     compCard = [];
+}
+
+function renderCard(card, player) {
+    player.innerHTML = '';
+    // Let's build the cards as a string of HTML
+    let cardsHtml = `<div class="card ${card.face}"></div>`
+    // var cardsHtml = deck.reduce(function(html, card) {
+    //   return html + `<div class="card ${card.face}"></div>`;
+    // }, '');
+    player.innerHTML = cardsHtml;
+}
+
+function renderWinner() {
+    if (compDeck.length === 0) return alert('Player has won')
+    if (playerDeck.length === 0) return alert('Computer has won')
 }
 
 
