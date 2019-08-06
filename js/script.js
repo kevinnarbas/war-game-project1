@@ -135,23 +135,25 @@ function goToWar() {
 }
 
 function checkWarWinner() {
-    if (playerCard.value[playerCard.length - 1] > compCard.value[compCard.length - 1]) { 
-        playerDeck = [playerDeck, ...playerCard];
-        playerDeck = [playerDeck, ...compCard];
+    if (playerCard[playerCard.length - 1].value > compCard[compCard.length - 1].value) { 
+        playerDeck = (playerDeck.concat(playerCard, compCard));
+        // playerDeck = [playerDeck, ...compCard];
         console.log('player wins');
         // console.log(playerCard.length);
     }
-    else if (playerCard.value[playerCard.length - 1] == compCard.value[compCard.length - 1]) {
+    else if (playerCard[playerCard.length - 1].value == compCard[compCard.length - 1].value) {
         console.log('go to war');
         goToWar();
     }
     else {
-        compDeck = [compDeck, ...compCard];
-        compDeck = [compDeck, ...playerCard];
+        compDeck = compDeck.concat(compCard, playerCard);
+        // compDeck = [compDeck, ...playerCard];
         console.log('computer wins');
     }
-    // playerCard = [];
-    // compCard = [];
+    // playerDeck.flat(2);
+    // compDeck.flat(2);
+    playerCard = [];
+    compCard = [];
 }
 
 
