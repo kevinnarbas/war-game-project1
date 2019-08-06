@@ -95,22 +95,64 @@ function playRound() {
     playerCard = playerDeck.shift();
     console.log(compCard);
     console.log(playerCard);
-
+    
     checkRoundWinner();
     render();
 }
 
 function checkRoundWinner() {
+
     if (playerCard.value > compCard.value) { 
-        console.log('player wins')
+        playerDeck = playerDeck.concat(playerCard);
+        playerDeck = playerDeck.concat(compCard);
+        console.log('player wins');
+        // console.log(playerCard.length);
     }
     else if (playerCard.value == compCard.value) {
-        console.log('go to war')
+        console.log('go to war');
+        goToWar();
     }
-    else console.log('computer wins')
+    else {
+        compDeck = compDeck.concat(compCard);
+        compDeck = compDeck.concat(playerCard);
+        console.log('computer wins');
+    }
 }
 
+function goToWar() {
+    let playerWar = [];
+    let compWar = [];
+    for(let i = 0; i <= 3; i++) {
+        compWar.push(compDeck.shift());
+        playerWar.push(playerDeck.shift());
+    };
+    playerCard = [playerCard, ...playerWar];
+    compCard = [compCard, ...compWar];
+    console.log(playerWar, compWar);
+    console.log(playerCard, compCard);
+    checkWarWinner();
 
+}
+
+function checkWarWinner() {
+    if (playerCard.value[playerCard.length - 1] > compCard.value[compCard.length - 1]) { 
+        playerDeck = [playerDeck, ...playerCard];
+        playerDeck = [playerDeck, ...compCard];
+        console.log('player wins');
+        // console.log(playerCard.length);
+    }
+    else if (playerCard.value[playerCard.length - 1] == compCard.value[compCard.length - 1]) {
+        console.log('go to war');
+        goToWar();
+    }
+    else {
+        compDeck = [compDeck, ...compCard];
+        compDeck = [compDeck, ...playerCard];
+        console.log('computer wins');
+    }
+    // playerCard = [];
+    // compCard = [];
+}
 
 
 function resetGame() {
