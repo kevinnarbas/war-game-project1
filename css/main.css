@@ -19,8 +19,9 @@ footer {
     background-color: blue;
 } */
 
-div img {
-    height: 40vh
+div.card {
+    height: 34vh;
+    width: 25vh;
 }
 
 main {
