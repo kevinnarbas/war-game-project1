@@ -193,7 +193,7 @@ function renderCard(card, player) {
 function renderWarCards(card, player) {
     player.innerHTML = '';
     for (let i = 0; i <= card.length - 1; i++){
-        player.innerHTML = `<div class="card ${card[i].face}"></div> <br />`
+        player.innerHTML += `<div class="card ${card[i].face}"></div> <br />`
     }
     
     
