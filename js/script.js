@@ -25,6 +25,7 @@ const compCardRender = document.querySelector('.playcard2')
 /*----- event listeners -----*/ 
 document.getElementById('next').addEventListener('click', playRound);
 document.getElementById('reset').addEventListener('click', resetGame);
+document.getElementById('end').addEventListener('click', endGame);
 
 /*----- functions -----*/
 init();
@@ -37,16 +38,13 @@ function init() {
 
     compCard = [];
     playerCard = [];
-
-    // playerDeck = [];
-    
-    // compDeck = [];
-    
     winner = null // player or comp 
     
     playerCardRender.innerHTML = `<div class="card back-blue"></div>`;
     compCardRender.innerHTML = `<div class="card back-blue"></div>`;
     
+    document.querySelector('.play1').style.border = "5px solid #white";
+    document.querySelector('.play2').style.border = "5px solid white";
 
 
     builtShuffledDeck();
@@ -58,59 +56,59 @@ function render() {
     //render scores
     //ICE BOX ISSUE BELOW
     // for (let key in cardCount) {
-    //     console.log(`The player has ${playerDeck.length} cards`);
-    //     console.log(`The computer has ${compDeck.length} cards`)
-    //     // countEls[key].textContent = `${key}Deck.length`;
-    //     countEls
-    // }
-    cardCount.player = (playerCountEl.textContent = playerDeck.length);
-    cardCount.comp = (compCountEl.textContent = compDeck.length);
-    
-    
-}
-
-function builtShuffledDeck() {
-    let tempDeck = masterDeck.slice();
-    shuffledDeck = [];
-    while (tempDeck.length) {
-        let rndIdx = Math.floor(Math.random() * tempDeck.length);
-        shuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
+        //     console.log(`The player has ${playerDeck.length} cards`);
+        //     console.log(`The computer has ${compDeck.length} cards`)
+        //     // countEls[key].textContent = `${key}Deck.length`;
+        //     countEls
+        // }
+        cardCount.player = (playerCountEl.textContent = playerDeck.length);
+        cardCount.comp = (compCountEl.textContent = compDeck.length);
+        
+        
     }
-    splitDeck();
-}
-
-function builtMasterDeck() {
-    let deck = [];
-    suits.forEach(function(suit) {
-        ranks.forEach(function (rank) {
-            deck.push({
-                face: `${suit}${rank}`,
-                value: Number(rank),
-                
+    
+    function builtShuffledDeck() {
+        let tempDeck = masterDeck.slice();
+        shuffledDeck = [];
+        while (tempDeck.length) {
+            let rndIdx = Math.floor(Math.random() * tempDeck.length);
+            shuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
+        }
+        splitDeck();
+    }
+    
+    function builtMasterDeck() {
+        let deck = [];
+        suits.forEach(function(suit) {
+            ranks.forEach(function (rank) {
+                deck.push({
+                    face: `${suit}${rank}`,
+                    value: Number(rank),
+                    
+                });
             });
         });
-    });
-    return deck;
-};
-
-function splitDeck() {
-    playerDeck = shuffledDeck.slice(26, (shuffledDeck.length + 1));
-    compDeck = shuffledDeck.slice(0, 26)
-    return 
-}
-
-function playRound() {
-    if (playerDeck.length > 0 && compDeck.length > 0) {
-        compCard = compDeck.shift();
-        playerCard = playerDeck.shift();
-        renderCard(compCard, compCardRender);
-        renderCard(playerCard, playerCardRender);
-        console.log(compCard);
-        console.log(playerCard);
-        
-        checkRoundWinner();
-        render();
-    } else {
+        return deck;
+    };
+    
+    function splitDeck() {
+        playerDeck = shuffledDeck.slice(26, (shuffledDeck.length + 1));
+        compDeck = shuffledDeck.slice(0, 26)
+        return 
+    }
+    
+    function playRound() {
+        if (playerDeck.length > 0 && compDeck.length > 0) {
+            compCard = compDeck.shift();
+            playerCard = playerDeck.shift();
+            renderCard(compCard, compCardRender);
+            renderCard(playerCard, playerCardRender);
+            console.log(compCard);
+            console.log(playerCard);
+            
+            checkRoundWinner();
+            render();
+        } else {
         renderWinner();
     }
 }
@@ -120,6 +118,8 @@ function checkRoundWinner() {
     if (playerCard.value > compCard.value) { 
         playerDeck = playerDeck.concat(playerCard);
         playerDeck = playerDeck.concat(compCard);
+        document.querySelector('.play1').style.border = "5px solid #4b5320";
+        document.querySelector('.play2').style.border = "5px solid white";
         console.log('player wins');
         // console.log(playerCard.length);
     }
@@ -130,6 +130,8 @@ function checkRoundWinner() {
     else {
         compDeck = compDeck.concat(compCard);
         compDeck = compDeck.concat(playerCard);
+        document.querySelector('.play2').style.border = "5px solid #4b5320";
+        document.querySelector('.play1').style.border = "5px solid white";
         console.log('computer wins');
     }
 }
@@ -148,12 +150,14 @@ function goToWar() {
     renderWarCards(playerCard, playerCardRender);
     renderWarCards(compCard, compCardRender);
     checkWarWinner();
-
+    
 }
 
 function checkWarWinner() {
     if (playerCard[playerCard.length - 1].value > compCard[compCard.length - 1].value) { 
         playerDeck = (playerDeck.concat(playerCard, compCard));
+        document.querySelector('.play1').style.border = "5px solid #4b5320";
+        document.querySelector('.play2').style.border = "5px solid white";
         // playerDeck = [playerDeck, ...compCard];
         console.log('player wins');
         // console.log(playerCard.length);
@@ -164,6 +168,8 @@ function checkWarWinner() {
     }
     else {
         compDeck = compDeck.concat(compCard, playerCard);
+        document.querySelector('.play2').style.border = "5px solid #4b5320";
+        document.querySelector('.play1').style.border = "5px solid white";
         // compDeck = [compDeck, ...playerCard];
         console.log('computer wins');
     }
@@ -210,6 +216,10 @@ function renderWinner() {
 
 function resetGame() {
     init();
+}
+
+function endGame() {
+    renderWinner();
 }
 
 console.log(masterDeck);
