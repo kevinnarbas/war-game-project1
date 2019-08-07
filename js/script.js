@@ -39,6 +39,7 @@ function init() {
     compCard = [];
     playerCard = [];
     winner = null // player or comp 
+    clicks = 0;
     
     playerCardRender.innerHTML = `<div class="card back-blue"></div>`;
     compCardRender.innerHTML = `<div class="card back-blue"></div>`;
@@ -61,56 +62,62 @@ function render() {
         //     // countEls[key].textContent = `${key}Deck.length`;
         //     countEls
         // }
-        cardCount.player = (playerCountEl.textContent = playerDeck.length);
-        cardCount.comp = (compCountEl.textContent = compDeck.length);
+    cardCount.player = (playerCountEl.textContent = playerDeck.length);
+    cardCount.comp = (compCountEl.textContent = compDeck.length);
         
         
+}
+
+function builtShuffledDeck() {
+    let tempDeck = masterDeck.slice();
+    shuffledDeck = [];
+    while (tempDeck.length) {
+        let rndIdx = Math.floor(Math.random() * tempDeck.length);
+        shuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
     }
-    
-    function builtShuffledDeck() {
-        let tempDeck = masterDeck.slice();
-        shuffledDeck = [];
-        while (tempDeck.length) {
-            let rndIdx = Math.floor(Math.random() * tempDeck.length);
-            shuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
-        }
-        splitDeck();
-    }
-    
-    function builtMasterDeck() {
-        let deck = [];
-        suits.forEach(function(suit) {
-            ranks.forEach(function (rank) {
-                deck.push({
-                    face: `${suit}${rank}`,
-                    value: Number(rank),
-                    
-                });
+    splitDeck();
+}
+
+function builtMasterDeck() {
+    let deck = [];
+    suits.forEach(function(suit) {
+        ranks.forEach(function (rank) {
+            deck.push({
+                face: `${suit}${rank}`,
+                value: Number(rank),
+                
             });
         });
-        return deck;
-    };
+    });
+    return deck;
+};
+
+function splitDeck() {
+    playerDeck = shuffledDeck.slice(26, (shuffledDeck.length + 1));
+    compDeck = shuffledDeck.slice(0, 26)
+    return 
+}
     
-    function splitDeck() {
-        playerDeck = shuffledDeck.slice(26, (shuffledDeck.length + 1));
-        compDeck = shuffledDeck.slice(0, 26)
-        return 
-    }
-    
-    function playRound() {
-        if (playerDeck.length > 0 && compDeck.length > 0) {
-            compCard = compDeck.shift();
-            playerCard = playerDeck.shift();
-            renderCard(compCard, compCardRender);
-            renderCard(playerCard, playerCardRender);
-            console.log(compCard);
-            console.log(playerCard);
-            
-            checkRoundWinner();
-            render();
-        } else {
+function playRound() {
+    if (playerDeck.length > 0 && compDeck.length > 0) {
+        compCard = compDeck.shift();
+        playerCard = playerDeck.shift();
+        renderCard(compCard, compCardRender);
+        renderCard(playerCard, playerCardRender); 
+        
+        console.log(compCard);
+        console.log(playerCard);
+        checkRoundWinner();
+        render();
+        click();
+    } else {
         renderWinner();
     }
+}
+
+function click() {
+    clicks += 1;
+    document.querySelector('.ctr').innerHTML = `<p>Round: ${clicks}</p>`;
 }
 
 function checkRoundWinner() {
@@ -207,9 +214,11 @@ function renderWarCards(card, player) {
 
 function renderWinner() {
     if (compDeck.length > playerDeck.length) {
-        return alert('Computer has won')
+        return alert('Computer has won!')
+    } else if (compDeck.length === playerDeck.length) {
+        return alert('Tie game!')
     } else {
-        return alert('Computer has won')
+        return alert('Computer has won!')
     }; 
 }
 
