@@ -31,7 +31,7 @@ main {
     grid-template-areas: 
         "play2 card2"
         "play1 card1"
-        "btn btn";
+        "ctr btn";
     }
     
 div.play2 {
@@ -75,8 +75,14 @@ div.playcard1 {
 
 div.btns {
     grid-area: btn;
-    grid-column: 2 / 3;
+    /* grid-column: 2 / 3; */
     display: flex;
     justify-content: space-between;
     margin-bottom: 7px;
+}
+
+div.ctr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
