@@ -43,6 +43,7 @@ function init() {
     winner = null // player or comp 
     clicks = 0;
     
+    document.querySelector('.ctr').innerHTML = `<p>Round: 0</p>`;
     playerCardRender.innerHTML = `<div class="card back-blue"></div>`;
     compCardRender.innerHTML = `<div class="card back-blue"></div>`;
     compWin.textContent = '';
