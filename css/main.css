@@ -15,7 +15,7 @@ body {
 header {
     font-family: 'Saira Stencil One', cursive;
     font-size: 3vh;
-    
+    text-shadow: -1px 2px 4px rgba(255,255,255,0.88);
 }
 
 
@@ -43,6 +43,7 @@ div.play2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-shadow: -1px 2px 4px rgba(255,255,255,0.88);
 }
 
 div.play1 {
@@ -55,7 +56,7 @@ div.play1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    text-shadow: -1px 2px 4px rgba(255,255,255,0.88);
 }
 
 div.playcard2 {
@@ -90,6 +91,7 @@ div.ctr {
     font-family: 'Saira Stencil One', cursive;
     font-size: 30px;
     justify-content: center;
+    text-shadow: -1px 2px 4px rgba(255,255,255,0.88);
 }
 
 .play2 h2, .play1 h2 {
@@ -123,6 +125,8 @@ button {
     font-family: 'Saira Stencil One', cursive;
     font-size: 2.7vh;
     border-radius: 6px;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(255,255,255,0.76); 
+    box-shadow: 0px 0px 7px 0px rgba(255,255,255,0.76);
 }
 
 button:hover {
