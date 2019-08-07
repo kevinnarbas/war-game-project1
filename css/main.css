@@ -32,11 +32,13 @@ main {
         "play2 card2"
         "play1 card1"
         "btn btn";
-}
-
+    }
+    
 div.play2 {
     grid-area: play2;
     display: flex;
+    border: 5px solid white;
+    border-radius: 15px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -44,6 +46,8 @@ div.play2 {
 
 div.play1 {
     grid-area: play1;
+    border: 5px solid white;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
