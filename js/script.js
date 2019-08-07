@@ -20,6 +20,8 @@ const playerCountEl = document.getElementById('counter1')
 const compCountEl = document.getElementById('counter2')
 const playerCardRender = document.querySelector('.playcard1')
 const compCardRender = document.querySelector('.playcard2')
+const playerWin = document.getElementById('playerWin')
+const compWin = document.getElementById('compWin')
 
 
 /*----- event listeners -----*/ 
@@ -43,6 +45,8 @@ function init() {
     
     playerCardRender.innerHTML = `<div class="card back-blue"></div>`;
     compCardRender.innerHTML = `<div class="card back-blue"></div>`;
+    compWin.textContent = '';
+    playerWin.textContent = '';
     
     document.querySelector('.play1').style.border = "5px solid transparent";
     document.querySelector('.play2').style.border = "5px solid transparent";
@@ -214,11 +218,15 @@ function renderWarCards(card, player) {
 
 function renderWinner() {
     if (compDeck.length > playerDeck.length) {
-        return alert('Computer has won!')
+        compWin.textContent = `WINNER`;
+        // return alert('Computer has won!')
     } else if (compDeck.length === playerDeck.length) {
-        return alert('Tie game!')
+        compWin.textContent = `TIE`;
+        playerWin.textContent = `GAME`;
+        // return alert('Tie game!')
     } else {
-        return alert('Computer has won!')
+        playerWin.textContent = `WINNER`;
+        // return alert('Computer has won!')
     }; 
 }
 

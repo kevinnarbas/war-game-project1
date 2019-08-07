@@ -26,12 +26,12 @@ div.card {
 
 main {
     display: grid;
-    grid-template-columns: 22vmin 62vmin;
+    grid-template-columns: 22vmin 62vmin 10vmin;
     grid-template-rows: 40vh 40vh 5vh;
     grid-template-areas: 
-        "play2 card2"
-        "play1 card1"
-        "ctr btn";
+        "play2 card2 cwin"
+        "play1 card1 pwin"
+        "ctr btn btn";
     }
     
 div.play2 {
@@ -116,9 +116,31 @@ div.ctr {
 }
 
 button {
-    width: 17vw;
+    border: 2px dashed black;
+    grid-column: 2/3;
+    width: 15vw;
     background: #907D63;
     font-family: 'Saira Stencil One', cursive;
     font-size: 2.7vh;
     border-radius: 6px;
+}
+
+button:hover {
+    background-color: #C6BCB2;
+}
+
+#playerWin {
+    grid-area: pwin;
+    font-family: 'Saira Stencil One', cursive;
+    font-size: 9.5vh;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+#compWin {
+    grid-area: cwin;
+    font-family: 'Saira Stencil One', cursive;
+    font-size: 9.5vh;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
 }
