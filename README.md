@@ -1,10 +1,15 @@
 # War game 
 ## Phase 1 Project:
 
+## Technologies used:
+- HTML, CSS, JavaScript.
+
 ### Wireframe for game board:
+---
 ![Imgur](https://i.imgur.com/CqdZTPl.png)
 
 ### General Pseudocode 
+---
     Initiate
         -Board
         -Turn
@@ -19,7 +24,7 @@
 
 
 ### Detailed Pseudocode
-
+---
     * <- if two player game
     init
         array for each player 
@@ -64,14 +69,25 @@
 * Different modes 
     * Two player
 * Add audio elements
+---
 
-    
+# Getting started
+
+![Imgur](https://i.imgur.com/76lMS8B.png)
+
+This was my view for the majority of the game. These backs were hard coded into the HTML
+
+Most of the game's logic was done with console.log - ing ...everything
+
+![Imgur](https://i.imgur.com/4FRkJNZ.png)
+
+This is the rough state when i finally got the logic done and started to render cards dynamically.
+
+![Imgur](https://i.imgur.com/tGX0N1z.png)
+
+This took another long bit to make happen and still isnt perfect but the cards that were pulled from the war function are displayed so you can see what precious cards youre losing. I know its supposed to me anonymous but oh well.
+
+---
 
 
-
-
-        
-
-    
-
-    
+Here is the final state of what i was happy with.  the cards are still rendering really tall. Also added a turn count so you know how long this play session actually is. Also added another button to end game early for the impatient ones.
