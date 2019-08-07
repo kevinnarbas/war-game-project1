@@ -44,8 +44,8 @@ function init() {
     playerCardRender.innerHTML = `<div class="card back-blue"></div>`;
     compCardRender.innerHTML = `<div class="card back-blue"></div>`;
     
-    document.querySelector('.play1').style.border = "5px solid #white";
-    document.querySelector('.play2').style.border = "5px solid white";
+    document.querySelector('.play1').style.border = "5px solid transparent";
+    document.querySelector('.play2').style.border = "5px solid transparent";
 
 
     builtShuffledDeck();
@@ -125,8 +125,8 @@ function checkRoundWinner() {
     if (playerCard.value > compCard.value) { 
         playerDeck = playerDeck.concat(playerCard);
         playerDeck = playerDeck.concat(compCard);
-        document.querySelector('.play1').style.border = "5px solid #4b5320";
-        document.querySelector('.play2').style.border = "5px solid white";
+        document.querySelector('.play1').style.border = "5px solid #EFDBC5";
+        document.querySelector('.play2').style.border = "5px solid transparent";
         console.log('player wins');
         // console.log(playerCard.length);
     }
@@ -137,8 +137,8 @@ function checkRoundWinner() {
     else {
         compDeck = compDeck.concat(compCard);
         compDeck = compDeck.concat(playerCard);
-        document.querySelector('.play2').style.border = "5px solid #4b5320";
-        document.querySelector('.play1').style.border = "5px solid white";
+        document.querySelector('.play2').style.border = "5px solid #EFDBC5";
+        document.querySelector('.play1').style.border = "5px solid transparent";
         console.log('computer wins');
     }
 }
@@ -163,8 +163,8 @@ function goToWar() {
 function checkWarWinner() {
     if (playerCard[playerCard.length - 1].value > compCard[compCard.length - 1].value) { 
         playerDeck = (playerDeck.concat(playerCard, compCard));
-        document.querySelector('.play1').style.border = "5px solid #4b5320";
-        document.querySelector('.play2').style.border = "5px solid white";
+        document.querySelector('.play1').style.border = "5px solid #EFDBC5";
+        document.querySelector('.play2').style.border = "5px solid transparent";
         // playerDeck = [playerDeck, ...compCard];
         console.log('player wins');
         // console.log(playerCard.length);
@@ -175,8 +175,8 @@ function checkWarWinner() {
     }
     else {
         compDeck = compDeck.concat(compCard, playerCard);
-        document.querySelector('.play2').style.border = "5px solid #4b5320";
-        document.querySelector('.play1').style.border = "5px solid white";
+        document.querySelector('.play2').style.border = "5px solid #EFDBC5";
+        document.querySelector('.play1').style.border = "5px solid transparent";
         // compDeck = [compDeck, ...playerCard];
         console.log('computer wins');
     }
