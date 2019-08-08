@@ -91,3 +91,9 @@ This took another long bit to make happen and still isnt perfect but the cards t
 
 
 Here is the final state of what i was happy with.  the cards are still rendering really tall. Also added a turn count so you know how long this play session actually is. Also added another button to end game early for the impatient ones.
+
+![Imgur](https://i.imgur.com/rIwJ2Ms.png)
+![Imgur](https://i.imgur.com/YPfDbRI.png)
+![Imgur](https://i.imgur.com/xg06Rkb.png)
+![Imgur](https://i.imgur.com/5AyJ0py.png)
+![Imgur](https://i.imgur.com/VoodlbT.png)

@@ -195,24 +195,19 @@ function renderWarCards(card, player) {
     for (let i = 0; i <= card.length - 1; i++){
         player.innerHTML += `<div class="card ${card[i].face} war"></div> <br />`;
     }
-    // document.querySelector('div.card').style.height = "16vh"
-    
 }
 
 function renderWinner() {
-    if (clicks = 0) {
+    // if (clicks = 0) {
 
-    }
+    // }
         if (compDeck.length > playerDeck.length) {
             compWin.textContent = `WINNER`;
-            // return alert('Computer has won!')
         } else if (compDeck.length === playerDeck.length) {
             compWin.textContent = `TIE`;
             playerWin.textContent = `GAME`;
-            // return alert('Tie game!')
         } else {
             playerWin.textContent = `WINNER`;
-            // return alert('Computer has won!')
         }; 
 }
 
