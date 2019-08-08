@@ -43,7 +43,7 @@ function init() {
     winner = null // player or comp 
     clicks = 0;
     
-    document.querySelector('.ctr').innerHTML = `<p>Round: 0</p>`;
+    document.querySelector('.ctr').innerHTML = `<p>Round: ${clicks}</p>`;
     playerCardRender.innerHTML = `<div class="card back-blue"></div>`;
     compCardRender.innerHTML = `<div class="card back-blue"></div>`;
     compWin.textContent = '';
@@ -55,7 +55,6 @@ function init() {
 
     builtShuffledDeck();
     render();
-    // console.log(`The player has ${playerDeck.length} cards`);
 }
 
 function render() {
@@ -109,9 +108,7 @@ function playRound() {
         playerCard = playerDeck.shift();
         renderCard(compCard, compCardRender);
         renderCard(playerCard, playerCardRender); 
-        
-        console.log(compCard);
-        console.log(playerCard);
+
         checkRoundWinner();
         render();
         click();
@@ -132,11 +129,8 @@ function checkRoundWinner() {
         playerDeck = playerDeck.concat(compCard);
         document.querySelector('.play1').style.border = "5px solid #EFDBC5";
         document.querySelector('.play2').style.border = "5px solid transparent";
-        console.log('player wins');
-        // console.log(playerCard.length);
     }
     else if (playerCard.value == compCard.value) {
-        console.log('go to war');
         goToWar();
     }
     else {
@@ -144,7 +138,6 @@ function checkRoundWinner() {
         compDeck = compDeck.concat(playerCard);
         document.querySelector('.play2').style.border = "5px solid #EFDBC5";
         document.querySelector('.play1').style.border = "5px solid transparent";
-        console.log('computer wins');
     }
 }
 
@@ -157,8 +150,6 @@ function goToWar() {
     };
     playerCard = [playerCard, ...playerWar];
     compCard = [compCard, ...compWar];
-    console.log(playerWar, compWar);
-    console.log(playerCard, compCard);
     renderWarCards(playerCard, playerCardRender);
     renderWarCards(compCard, compCardRender);
     checkWarWinner();
@@ -170,26 +161,19 @@ function checkWarWinner() {
         playerDeck = (playerDeck.concat(playerCard, compCard));
         document.querySelector('.play1').style.border = "5px solid #EFDBC5";
         document.querySelector('.play2').style.border = "5px solid transparent";
-        // playerDeck = [playerDeck, ...compCard];
-        console.log('player wins');
-        // console.log(playerCard.length);
     }
     else if (playerCard[playerCard.length - 1].value == compCard[compCard.length - 1].value) {
-        console.log('go to war');
         goToWarAgain();
     }
     else {
         compDeck = compDeck.concat(compCard, playerCard);
         document.querySelector('.play2').style.border = "5px solid #EFDBC5";
         document.querySelector('.play1').style.border = "5px solid transparent";
-        // compDeck = [compDeck, ...playerCard];
-        console.log('computer wins');
     }
-    // playerDeck.flat(2);
-    // compDeck.flat(2);
     playerCard = [];
     compCard = [];
 }
+
 function goToWarAgain() {
     let playerWarTwo = [];
     let compWarTwo = [];
@@ -199,8 +183,6 @@ function goToWarAgain() {
     };
     playerCard = playerCard.concat(playerWarTwo);
     compCard = compCard.concat(compWarTwo);
-    console.log(playerWarTwo, compWarTwo);
-    console.log(playerCard, compCard);
     checkWarWinner();
 }
 
@@ -211,26 +193,28 @@ function renderCard(card, player) {
 function renderWarCards(card, player) {
     player.innerHTML = '';
     for (let i = 0; i <= card.length - 1; i++){
-        player.innerHTML += `<div class="card ${card[i].face}"></div> <br />`
+        player.innerHTML += `<div class="card ${card[i].face} war"></div> <br />`;
     }
-    
+    // document.querySelector('div.card').style.height = "16vh"
     
 }
 
 function renderWinner() {
-    if (compDeck.length > playerDeck.length) {
-        compWin.textContent = `WINNER`;
-        // return alert('Computer has won!')
-    } else if (compDeck.length === playerDeck.length) {
-        compWin.textContent = `TIE`;
-        playerWin.textContent = `GAME`;
-        // return alert('Tie game!')
-    } else {
-        playerWin.textContent = `WINNER`;
-        // return alert('Computer has won!')
-    }; 
-}
+    if (clicks = 0) {
 
+    }
+        if (compDeck.length > playerDeck.length) {
+            compWin.textContent = `WINNER`;
+            // return alert('Computer has won!')
+        } else if (compDeck.length === playerDeck.length) {
+            compWin.textContent = `TIE`;
+            playerWin.textContent = `GAME`;
+            // return alert('Tie game!')
+        } else {
+            playerWin.textContent = `WINNER`;
+            // return alert('Computer has won!')
+        }; 
+}
 
 function resetGame() {
     init();
@@ -239,6 +223,3 @@ function resetGame() {
 function endGame() {
     renderWinner();
 }
-
-console.log(masterDeck);
-console.log(shuffledDeck);

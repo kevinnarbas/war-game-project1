@@ -24,6 +24,11 @@ div.card {
     width: 25vh;
 }
 
+div.war {
+    height: 16vh;
+    width: 25vh;
+}
+
 main {
     display: grid;
     grid-template-columns: 22vmin 62vmin 10vmin;
@@ -80,7 +85,7 @@ div.playcard1 {
 div.btns {
     grid-area: btn;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-bottom: 7px;
 
 }
@@ -139,6 +144,7 @@ button:hover {
     font-size: 9.5vh;
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    text-shadow: -1px 2px 4px rgba(255,255,255,0.88);
 }
 
 #compWin {
@@ -147,4 +153,5 @@ button:hover {
     font-size: 9.5vh;
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    text-shadow: -1px 2px 4px rgba(255,255,255,0.88);
 }
