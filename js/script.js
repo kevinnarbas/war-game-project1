@@ -23,11 +23,22 @@ const compCardRender = document.querySelector('.playcard2')
 const playerWin = document.getElementById('playerWin')
 const compWin = document.getElementById('compWin')
 
+var sliderTrigger = document.getElementsByClassName("slider-trigger")[0];
+var slider = document.getElementsByClassName('slider-parent')[0];
+
 
 /*----- event listeners -----*/ 
 document.getElementById('next').addEventListener('click', playRound);
 document.getElementById('reset').addEventListener('click', resetGame);
 document.getElementById('end').addEventListener('click', endGame);
+
+sliderTrigger.addEventListener( "click" , function(el) {
+    if (slider.classList.contains("active")){
+        slider.classList.remove("active"); 
+    } else {  
+        slider.classList.add("active"); 
+    }
+});
 
 /*----- functions -----*/
 init();
