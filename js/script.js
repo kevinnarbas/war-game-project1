@@ -9,13 +9,6 @@ const masterDeck = builtMasterDeck();
 let cardCount, compCard, playerCard, shuffledDeck, playDeck, compDeck, winner;
 
 /*----- cached element references -----*/ 
-
-// ICE BOX CODE BELOW
-
-// const countEls = {
-//     player: document.getElementById('counter1'),
-//     comp: document.getElementById('counter2'),
-// }
 const playerCountEl = document.getElementById('counter1')
 const compCountEl = document.getElementById('counter2')
 const playerCardRender = document.querySelector('.playcard1')
@@ -69,18 +62,8 @@ function init() {
 }
 
 function render() {
-    //render scores
-    //ICE BOX ISSUE BELOW
-    // for (let key in cardCount) {
-        //     console.log(`The player has ${playerDeck.length} cards`);
-        //     console.log(`The computer has ${compDeck.length} cards`)
-        //     // countEls[key].textContent = `${key}Deck.length`;
-        //     countEls
-        // }
     cardCount.player = (playerCountEl.textContent = playerDeck.length);
-    cardCount.comp = (compCountEl.textContent = compDeck.length);
-        
-        
+    cardCount.comp = (compCountEl.textContent = compDeck.length);      
 }
 
 function builtShuffledDeck() {

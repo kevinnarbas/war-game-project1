@@ -102,3 +102,31 @@ Here is the final state of what i was happy with.  the cards are still rendering
 
 My actual end state is this with the added instructions page. 
 ![Imgur](https://i.imgur.com/ATXK3MK.png)
+
+---
+
+## Problems that I ran into:
+
+* War function messing *everything* up. By that I mean **EVERYTHING** that could possibly go wrong.
+
+* Getting CSS to do what I wanted it to do as dry as I could make it. 
+
+* Knowing what should be placed where to make them work correctly. 
+    * Using .style in js or just making a new cSS property in CSS.
+
+* ## **Starting.** 
+
+
+## Things I'm taking away from this.
+
+* Plethora of knowledge of what array methods do and don't do.
+
+* More css properties and ways of manipulating what i want to do.
+
+* Ways of manipulaing the DOM with js better.
+
+* Seeing how better practices are the way they area for a reason.
+
+* Being able to look at other people's code and understanding their thought process and to tailor how I answer their question to better help them.
+
+* Applications are living breathing entities with **A LOT** of attitude and we cant predict every thing that can and probably will go wrong. And that we just have to roll with the punches.
