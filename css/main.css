@@ -20,7 +20,7 @@ header {
         "inst title";
     }
     
-    header > h1 {
+header > h1 {
     font-family: 'Saira Stencil One', cursive;
     font-size: 6.5vh;
     text-shadow: -1px 2px 4px rgba(255,255,255,0.88);
@@ -32,11 +32,13 @@ header {
 div.card {
     height: 34vh;
     width: 25vh;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
 }
 
 div.war {
     height: 16vh;
     width: 25vh;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
 }
 
 main {
@@ -235,4 +237,9 @@ p span.fun {
 
 p img {
     height: 14vh;
+}
+
+h1 img {
+    height: 8vh;
+    margin: 0 0 0 4vh;
 }
