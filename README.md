@@ -97,3 +97,8 @@ Here is the final state of what i was happy with.  the cards are still rendering
 ![Imgur](https://i.imgur.com/xg06Rkb.png)
 ![Imgur](https://i.imgur.com/5AyJ0py.png)
 ![Imgur](https://i.imgur.com/VoodlbT.png)
+
+---
+
+My actual end state is this with the added instructions page. 
+![Imgur](https://i.imgur.com/ATXK3MK.png)
